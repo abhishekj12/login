@@ -1,0 +1,22 @@
+<tbody>
+                                        @foreach ($cruds as $crud)
+                                            <tr>
+                                                <td>{{ $crud->id }}</td>
+                                                <td>{{ $crud->name }}</td>
+                                                <td>{{ $crud->email }}</td>
+                                                <td>
+                                                    <a href="#"  data-id={{$crud->id}} class="btn " data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                                    <img height="30px"
+                                                    width="30px"src="{{ asset('admin/app-assets/images/trash.png') }}">
+                                                </a>
+
+                                                    <form action="{{ route('data.edit', $crud->id) }}" method="GET">
+                                                        @csrf
+                                                        <button style="margin-left:100px " class=" btn btn2"
+                                                            type="submit"><img height="30px"
+                                                                width="30px"src="{{ asset('admin/app-assets/images/edit.png') }}"></button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
